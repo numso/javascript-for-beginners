@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript for Beginners - Part 1</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="impress">
+        <div class="step" data-x="-500" data-y="-1000">
+            <div class="title-page">
+                <div class="title">Javascript for Beginners</div>
+                <div class="subtitle">Part 1: The Basics</div>
+            </div>
+        </div>
+
+        <div class="step" data-x="-500" data-y="-1000" data-scale=".5">
+            <div class="author-page">
+                <div>By Dallin Osmun</div>
+                <div>@dallinosmun</div>
+            </div>
+        </div>
+
+        <div class="step" data-x="500" data-y="-1000">
+            <div class="get-started-page">
+                <div>Before we get started, here's what you should know:</div>
+                <ul>
+                    <li>You can try out Javascript in Chrome by pressing F12.</li>
+                    <li>You can try out Javascript in Firefox by pressing Shift-F4.</li>
+                    <li>I recommend using Chrome as your browser and Sublime Text 2 as your editor.</li>
+                    <li>Use console.log(myVar); to display your variable in the console.</li>
+                    <li>It can even work for objects: console.log(JSON.stringify(myObject));</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step" data-x="0" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Comments</div>
+                <div>Variables</div>
+                <div>Operators</div>
+                <div>Conditionals</div>
+                <div>Loops</div>
+                <div>Objects</div>
+                <div>Functions</div>
+                <div>Common Globals</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="250" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Comments</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="250" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div class="explanation">Comments are vital. Although your code should be self-explanatory, it doesn't hurt to add comments, explaining your thought process and what each function or code block does.</div>
+                <div>In Javascript you have single line comments</div>
+                <div><pre>// here is a single line comment</pre></div>
+                <div>and block comments</div>
+                <div>
+<pre>
+/*Here is a comment that
+  can wrap multiple lines.
+ */
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="180" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Variables</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="180" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div class="variables-detail-page">
+                <div>Variables let you store data for later use. Javascript has loosely-typed variables, meaning you store whatever you want and your browser will figure out what type your variable is.</div>
+                <div>To declare a variable in Javascript you write:</div>
+                <div><pre>var myVariableName = 'myValue';</pre></div>
+                <ul>
+                    <li>Booleans</li>
+                    <li>Numbers</li>
+                    <li>Strings</li>
+                    <li>Functions</li>
+                    <li>Objects</li>
+                    <li>Arrays</li>
+                    <li>undefined</li>
+                    <li>null</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="183" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>Booleans</div>
+                <div class="my-sub-page">
+                    <div>Booleans are either true or false. Example: </div>
+                    <div><pre>var likesCake = true;</pre></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="178.5" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>Numbers</div>
+                <div class="my-sub-page">
+                    <div>You can have whole or decimal numbers. ( Note: There are no constants in Javascript. A variable defined in all caps is an implied constant. ) Example: </div>
+                    <div><pre>var age = 22;</pre></div>
+                    <div><pre>var PI = 3.14159;</pre></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="174" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>Strings</div>
+                <div class="my-sub-page">
+                    <div>Strings are lines of text. They can be declared with either types of quotes Example: </div>
+                    <div><pre>var name = "Sam";</pre></div>
+                    <div><pre>var job = 'Developer';</pre></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="169.5" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>Functions</div>
+                <div class="my-sub-page">
+                    <div>A function is a group of executable code. We'll talk a lot more about them soon. Example: </div>
+                    <div>
+<pre>
+var add = function (a, b) {
+    return a * b;
+};
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="165" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>Objects</div>
+                <div class="my-sub-page">
+                    <div>An Object can contain any of these variable types inside it, including other objects. We'll talk more about them as well. Example: </div>
+                    <div>
+<pre>
+var person = {
+    name: "Josh",
+    age: 19,
+    isAwesome: true
+};
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="160.5" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>Arrays</div>
+                <div class="my-sub-page">
+                    <div>Arrays are a lot like Objects. They can contain a variety of values. Arrays have bulit in properties and methods like .length and .push(val). Example: </div>
+                    <div><pre>var myValues = [45, 'foo', true];</pre></div>
+                    <div><pre>myValues.length; // returns 3</pre></div>
+                    <div><pre>myValues.push('bar'); // adds bar to the array</pre></div>
+                    <div><pre>myValues[1]; // returns 'foo'</pre></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="156" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>undefined</div>
+                <div class="my-sub-page">
+                    <div>Every variable you define automatically is assigned this value. Example: </div>
+                    <div>
+<pre>
+var importantThing;
+console.log(importantThing);
+// returns undefined
+</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="151.5" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div class="variable-sub-page">
+                <div>null</div>
+                <div class="my-sub-page">
+                    <div>null is a falsy value like undefined but it's one that has been intentionally set. Example: </div>
+                    <div><pre>var moreData = null;</pre></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="160" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>A valid variable name starts with $, _, or a letter and can contain letters, certain characters, and numbers.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="160" data-y="4" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>0 (zero), '' (empty string), undefined, null, and false are all considered Falsy Values. Everything else (including [] and {}) is considered Truthy. These will come into play when we talk about if statements.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="110" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Operators</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="110" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div class="operators-detail-page">
+                <table>
+                    <tr>
+                        <td>Equals</td><td><pre>age === 10</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Not Equal To</td><td><pre>age !== 10</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Less</td><td><pre>age < 10</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Less or Equal</td><td><pre>age <= 10</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Greater</td><td><pre>age > 10</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Greater or Equal</td><td><pre>age >= 10</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Not</td><td><pre>!foo</pre></td>
+                    </tr>
+                    <tr>
+                        <td>And</td><td><pre>foo && bar</pre></td>
+                    </tr>
+                    <tr>
+                        <td>Or</td><td><pre>foo || age < 10</pre></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="110" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>Time for a Demo!</div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="38" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Conditionals</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="38" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>You can choose to branch your code by placing conditionals. The most common is the if statement. It looks like this: </div>
+                <div>
+<pre>
+if (value) {
+    // to do if value is true
+} else {
+    // to do if value is false
+}
+</pre>
+                </div>
+                <div>Any Truthy Value will cause the if block to run. Any Falsy Value will cause the else block to run.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="38" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>Another way to branch out is using as switch statement. A specific code path will run based on the value you pass in. Here it is: </div>
+                <div>
+<pre>
+switch (state) {
+    case "Utah":
+        // do stuff
+        break;
+    case "California":
+        // do stuff
+        break;
+    default:
+        // do stuff
+}
+</pre>
+                </div>
+                <div>A switch statement can be used with a string, number, or boolean.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-38" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Loops</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-38" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>Another useful control structure is loops. Javascript has 3 types of loops. The first, and most useful, is the for loop. The syntax looks like this:</div>
+                <div>
+<pre>
+for (var i = 0; i < 5; i++) {
+    console.log(i);
+} // prints out 01234
+</pre>
+                </div>
+                <div>First you initialize your variable, then you put in a condition, then you increment.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-38" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>The second style of loop is called the while loop. Here's what it looks like:</div>
+                <div>
+<pre>
+var i = 0;
+while (i < 5) {
+    console.log(i);
+    i++;
+} // prints out 01234
+</pre>
+                </div>
+                <div>While the condition in the loop is true, the loop will continue. Make sure not to make an infinite loop!!</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-38" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>The last type of loop is the do while The syntax looks like this.</div>
+                <div>
+<pre>
+var i = 0;
+do {
+    console.log(i);
+    i++;
+} while (i < 5);
+// prints out 01234
+</pre>
+                </div>
+                <div>The difference between this and the while loop is that the code in the loop block here is guaranteed to run at least once whereas in the while loop, the condition might always be false.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-38" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>All of these loops have two keywords that can be used inside.</div>
+                <div><pre>break; // exits out of the loop</pre></div>
+                <div><pre>continue; // skips to the next loop iteration</pre></div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-110" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Objects</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-110" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>An object is a set of key-value pairs. It can have as many properties as you want. Keys must be valid variable names, otherwise they must be surrounded in quotation marks. You can access object properties through the . operator or [] like arrays. If a function is assigned to an object, it is called a method.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-110" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>Example of an object:</div>
+                <div>
+<pre>
+var dog = {
+    name: 'spot',
+    age: 4,
+    bark: function () {
+        console.log('arf!');
+    },
+    children: ['scout', 'fido'],
+    "favorite-things": {
+        toy: 'bone',
+        food: 'ravioli'
+    }
+};
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-110" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>Using our last object, we can do this:</div>
+                <div>
+<pre>
+var dog = { ... };
+
+dog.name // returns 'spot'
+dog.age // returns 4
+dog['age'] // returns 4
+dog.bark() // runs that function
+dog.children[0] // returns 'scout'
+dog['favorite-things'].person = 'dallin'
+// adds a new property to the object
+</pre>
+                </div>
+                <div>*If a property name is not a valid identifier, you will need to use [] notation to access that property.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-110" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>Let's code up a little example.</div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-180" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Functions</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-180" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>We'll talk more about functions in part 2, but they're quite important. In Javascript, functions are first class. There are two ways to define a function:</div>
+                <div>
+<pre>
+function add(a, b) {
+    return a + b;
+}
+</pre>
+                </div>
+                <div>
+<pre>
+var add = function (a, b) {
+    return a + b;
+};
+</pre>
+                </div>
+                <div>We'll talk about the differences later. The more accepted, javascript approach, would be to use the second.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-180" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>You don't have to be very picky with your parameters or return statement. Everything in Javascript defaults to undefined. Any parameters not passed in will be undefined. If you don't return anything, the default value is undefined.</div>
+                <div>
+<pre>
+var myFunc = function (a) {
+    if (a) {
+        console.log('parameter passed');
+    } else {
+        console.log('parameter not found');
+    }
+}
+console.log(myFunc());
+// displays 'parameter not found'
+// displays 'undefined'
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-180" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>Anonymous Functions are those that don't have names. They can be assigned to variables like you see here. Or they can be used in another way...</div>
+                <div>
+<pre>
+var doSomething = function () {
+    // do something awesome
+    return a;
+}
+</pre>
+                </div>
+                <div>The function is anonymous and has no name, but is assigned to a variable with the name of doSomething.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-180" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>...as Immediate Functions! These are functions that are run immediately after they are created. This comes in very useful for scoping which will be covered in part 2. There are two ways to write immediate functions.</div>
+                <div>
+<pre>
+(function (a) {
+    console.log(a);
+}('hey there'));
+// displays 'hello there'
+</pre>
+                </div>
+                <div>
+<pre>
+(function (a) {
+    console.log(a);
+})("what's up");
+// displays "what's up"
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-180" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>Let's create a memoized fibonacci function</div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-250" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Common Globals</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-250" data-y="0" data-rotate-z="90" data-scale=".1">
+            <div>
+                <div>The window and document objects are always available to you. They have some nice methods that you can use:</div>
+                <div>
+<pre>
+document.getElementById(id);
+// grabs an element from the DOM
+</pre>
+                </div>
+                <div>
+<pre>
+instanceof
+age instanceof Number; // returns true;
+// determines if a variable is an instance of a certain type.
+</pre>
+                </div>
+                <div>
+<pre>
+typeof
+typeof age; // returns Number
+// determines what type a variable is
+</pre>
+                </div>
+                <div>
+<pre>
+parseInt(val)
+parseInt("34"); // returns 34
+// converts a string into a number
+</pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="0" data-y="0" data-rotate-x="20" data-rotate-y="-50" data-rotate-z="30" data-scale="10">
+            <p>Thanks for watching!</p>
+        </div>
+    </div>
+
+    <script src="js/lib/impress.js"></script>
+    <script>
+        impress().init();
+    </script>
+</body>
+</html>
