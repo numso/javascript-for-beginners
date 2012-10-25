@@ -6,7 +6,7 @@ var PORT = process.env.PORT || process.argv[2] || 3000,
 var express = require('express'),
     app = express();
 
-express.listen(PORT, HOST);
+app.listen(PORT, HOST);
 console.log("Server running on " + HOST + ":" + PORT);
 
 app.configure(function () {
