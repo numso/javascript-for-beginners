@@ -1,0 +1,109 @@
+body {
+    background-color: #1a82f7;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(#fff), to(#1a82f7));
+    background: -webkit-radial-gradient(circle, #fff, #1a82f7);
+    background: -moz-radial-gradient(circle, #fff, #1a82f7);
+    background: -ms-radial-gradient(circle, #fff, #1a82f7);
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    -ms-box-sizing:     border-box;
+    -o-box-sizing:      border-box;
+    box-sizing:         border-box;
+
+    font-family: 'PT Serif', georgia, serif;
+    font-size: 30px;
+    line-height: 1.5;
+}
+
+.impress-enabled {
+    .step {
+        margin: 0;
+        opacity: 0.3;
+
+        -webkit-transition: opacity 1s;
+        -moz-transition:    opacity 1s;
+        -ms-transition:     opacity 1s;
+        -o-transition:      opacity 1s;
+        transition:         opacity 1s;
+
+        &.hidden-on-inactive {
+            opacity: 0;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+    }
+}
+
+// .title-page {
+//     position: relative;
+//     left: 100px;
+//     top: -300px;
+
+//     .title {
+//         font-size: 60px;
+//     }
+
+//     .subtitle {
+//         font-size: 36px;
+//     }
+// }
+
+// .author-page {
+//     font-size: 60px;
+//     position: relative;
+//     left: 200px;
+// }
+
+// .get-started-page {
+//     font-size: 48px;
+
+//     ul {
+//         position: relative;
+//         left: -40px;
+//         width: 850px;
+//         font-size: 30px;
+//     }
+// }
+
+// .topics-page {
+//     font-size: 48px;
+// }
+
+// .comments-detail-page {
+//     width: 900px;
+
+//     .explanation {
+//         padding-bottom: 50px;
+//     }
+// }
+
+// .variables-detail-page {
+//     width: 910px;
+// }
+
+// .variable-sub-page {
+//     .my-sub-page {
+//         position: absolute;
+//         top: -100px;
+//         left: 300px;
+//     }
+// }
+
+// .operators-detail-page {
+//     pre {
+//         margin: 0;
+//         margin-left: 15px;
+//     }
+// }
