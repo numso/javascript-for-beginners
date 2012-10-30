@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript for Beginners - Part 2</title>
+    <link rel="stylesheet" type="text/css" href="css/slides.css">
+</head>
+<body>
+    <div id="impress">
+        <div class="step" data-x="-500" data-y="-1000">
+            <div class="title-page">
+                <div class="title">Javascript for Beginners</div>
+                <div class="subtitle">Part 2: Advanced Javascript</div>
+            </div>
+        </div>
+
+        <div class="step" data-x="-500" data-y="-1000" data-scale=".5">
+            <div class="author-page">
+                <div>By Dallin Osmun</div>
+                <div>@dallinosmun</div>
+            </div>
+        </div>
+
+        <div class="step" data-x="500" data-y="-1000">
+            <div class="get-started-page">
+                <div>If you haven't seen <a href="part1.html#/step-1">part 1</a>, go back and watch it!</div>
+            </div>
+        </div>
+
+        <div class="step" data-x="0" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Lexical Scoping</div>
+                <div>Hoisting</div>
+                <div>This</div>
+                <div>First Class Functions</div>
+                <div>Asynchronous Coding</div>
+                <div>Prototypical Inheritance</div>
+                <div>Tips and Tricks</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="217" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Lexical Scoping</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="217" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>Scoping works very differently in Javascript and is one of the main things that trips up experienced developers. Variables aren't hidden inside blocks (like if-statements and loops) but only in functions.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="217" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>For Example:</div>
+<pre>
+if (true) {
+    var foo = 'bar';
+}
+console.log(foo); // returns 'bar'
+</pre>
+                <div>Is perfectly valid in Javascript whereas in a more classical language like C++, you'd get a sytax error.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="217" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>This is where immediate functions come in. If you really need to encapsulate your data, do it with a function.</div>
+<pre>
+(function () {
+    var foo = 'bar';
+}());
+console.log(foo); // returns undefined
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="217" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>Don't let this trip you up!</div>
+<pre>
+for (var i = 0; i < 10; ++i) {
+    console.log(i);
+}
+for (var i; i < 10; ++i) {
+    // this will never get called!! By the
+    // time the code gets here, i is set to 10
+}
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="217" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>This is a common technique for hiding your private data and giving public methods to manipulate it:</div>
+<pre>
+var counter = (function () {
+    var count = 0;
+    return {
+        increment: function () {
+            count++;
+        },
+        getCount: function () {
+            return count;
+        }
+    };
+}());
+counter.increment(); // increments the count
+counter.getCount();  // returns 1
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Hoisting</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>Because of Lexical Scoping, Javascript Compilers perform an action called Hoisting before actually running your code. Hoisting is where all of your variables get raised to the top of the scope they belong to. They're declared at the top and initialized where you initialized them.</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>For Example, this code:</div>
+<pre>
+for (var i = 0; i < 10; ++i) {
+    var b = i * 3;
+    console.log(b);
+}
+</pre>
+                <div>becomes this:</div>
+<pre>
+var i = undefined;
+var b = undefined;
+for (i = 0; i < 10; ++i) {
+    b = i * 3;
+    console.log(b);
+}
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>This becomes more apparent and relevant when trying to fix bugs like this:</div>
+<pre>
+console.log(foo); // returns undefined!
+// do something
+var foo = 'baz';
+</pre>
+                <div>What's actually happening is this:</div>
+<pre>
+var foo = undefined; // foo is hoisted, it's value is not
+console.log(foo);
+// do something
+foo = 'baz'; // foo doesn't get initialized til here
+</pre>
+            </div>
+        </div>
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>This works because the function isn't run until after bar is declared.</div>
+<pre>
+var foo = function () {
+    console.log(bar);
+};
+var bar = "hey world";
+foo(); // displays 'hey world'
+</pre>
+                <div>What the code looks like after hoisting:</div>
+<pre>
+var foo = undefined;
+var bar = undefined;
+foo = function () {
+    console.log(bar);
+};
+bar = "hey world";
+foo(); // displays 'hey world'
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+<pre>
+var foo = "bar";
+(function () {
+    console.log(foo); // prints undefined?
+    var foo = "baz";  // scoped variable that hides the other foo
+    console.log(foo); // prints baz
+}());
+</pre>
+                <div>Actually looks like: </div>
+<pre>
+var foo = undefined;
+foo = "bar";
+(function () {
+    var foo = undefined;
+    console.log(foo); // prints undefined?
+    foo = "baz";  // scoped variable that hides the other foo
+    console.log(foo); // prints baz
+}());
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>Here's why we use the javascript style of function declaration.</div>
+<pre>
+foo();
+bar();
+function foo() {        // bad way
+    console.log('foo called');
+};
+var bar = function () { // good way
+    console.log('bar called');
+};
+// outputs: foo called
+//          Type Error!!
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>Here's what hoisting does to that problem. bar() behaves like expected. You can't call it until it's declared. foo() on the other hand has all of it's code hoisted with it.</div>
+<pre>
+function foo() {
+    console.log('foo called');
+};
+var bar = undefined;
+foo();
+bar();
+bar = function () {
+    console.log('bar called');
+};
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>This</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <p>Tom Valletta has a <a href="http://tvalletta.github.com/this-presentation/#/title">great presentation about this</a>. I highly recommend reading through it.</p>
+                <p>This will trip you up. A Lot. Unless you learn to get it down right now and practice it tons. This changes based on how the function was called.</p>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>First of all, if you just reference this from your code, you'll get the global object.</div>
+<pre>
+console.log(this);
+// this is the global window object
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>In a baseless function, this references the window object. In a method, it references it's object.</div>
+<pre>
+var foo = function () {
+    console.log(this);
+}
+foo(); // this is the global window object
+var myObj = { foo: foo };
+myObj.foo(); // this is myObj
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>When using call() or apply(), this references whatever context you passed in.</div>
+<pre>
+var foo = function (a, b) {
+    console.log((a + b) + " " + this);
+}
+foo.apply(Window, [1, 2]);
+foo.call(Window, {'0': 1, '1': 2});
+// output for both of these is '3 Window'
+// this is only because I passed Window in as the context
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>In a constructor, this references the object you are making.</div>
+<pre>
+var Person = function (name) {
+    this.name = name;
+    return this;
+};
+var fred = new Person('fred');
+// this references fred
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                <div>Be careful with how you call your functions. You can get some pretty unexpected results. In the following example, this references myObj when called as a method and then the Window object when called as a baseless function.</div>
+<pre>
+var myObj = {
+    age: 21,
+    getAge: function () {
+        return this.age;
+    }
+};
+myObj.getAge(); // returns 21;
+var functionCaller = function (func) {
+    func();
+};
+functionCaller(myObj.getAge); // returns undefined
+</pre>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="0" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>First Class Functions</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="0" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                Coming Soon!
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-71" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Asynchronous Coding</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-71" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                Coming Soon!
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-143" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Prototypical Inheritance</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-143" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                Coming Soon!
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-217" data-y="0" data-rotate-z="90">
+            <div class="topics-page">
+                <div>Tips and Tricks</div>
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="-217" data-y="200" data-rotate-z="90" data-scale=".1">
+            <div class="comments-detail-page">
+                Coming Soon!
+            </div>
+        </div>
+
+        <div class="step hidden-on-inactive" data-x="0" data-y="0" data-rotate-x="20" data-rotate-y="-50" data-rotate-z="30" data-scale="10">
+            <p>Thanks for watching!</p>
+        </div>
+    </div>
+
+    <script src="js/lib/impress.js"></script>
+    <script>
+        impress().init();
+    </script>
+</body>
+</html>
